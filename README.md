@@ -59,16 +59,14 @@ laravel環境構築
 
 ##　　テーブル設計
 
-<img width="641" alt="スクリーンショット 2024-10-29 18 35 57" src="https://github.com/user-attachments/assets/3c2a2f80-be63-4aa5-863c-0106890fb0a1">
-<img width="776" alt="スクリーンショット 2024-10-29 18 36 07" src="https://github.com/user-attachments/assets/39e26a43-dce5-485b-9abc-9b17c42ecfc1">
 
 
 ## ER図
 
-![スクリーンショット 2024-11-20 13 53 56](https://github.com/user-attachments/assets/27acd582-cb41-44cb-8fde-bb7d4ac1d872)
+
 
 ## URL
 
-・開発環境 : http://localhost/login
+・開発環境 : http://localhost
 
 ・phpMyAdmin : http://localhost:8080/
