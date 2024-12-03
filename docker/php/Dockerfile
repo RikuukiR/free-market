@@ -1,13 +1,18 @@
 FROM php:8.3-fpm
 
-COPY php.ini /usr/local/etc/php/
+# 必要なシステムパッケージをインストール
+RUN apt-get update && apt-get install -y \
+  libpq-dev \
+  libzip-dev \
+  zip \
+  unzip \
+  curl
 
-RUN apt update \
-  && apt install -y default-mysql-client zlib1g-dev libzip-dev unzip \
-  && docker-php-ext-install pdo_mysql zip
+# Composerをインストール
+RUN curl -sS https://getcomposer.org/installer | php && \
+  mv composer.phar /usr/local/bin/composer
 
-RUN curl -sS https://getcomposer.org/installer | php \
-  && mv composer.phar /usr/local/bin/composer \
-  && composer self-update
+# 必要なPHP拡張をインストール
+RUN docker-php-ext-install pdo_mysql
 
 WORKDIR /var/www

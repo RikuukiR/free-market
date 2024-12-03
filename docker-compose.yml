@@ -1,8 +1,7 @@
-# version: '3.8'
-
 services:
   nginx:
     image: nginx:1.21.1
+    platform: linux/amd64  # 追加
     ports:
       - "80:80"
     volumes:
@@ -12,12 +11,15 @@ services:
       - php
 
   php:
+    image: php:8.3-fpm
     build: ./docker/php
+    platform: linux/amd64  # 追加
     volumes:
       - ./src:/var/www/
 
   mysql:
     image: mysql:8.0.26
+    platform: linux/amd64  # 追加
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: laravel_db
@@ -31,6 +33,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    platform: linux/amd64  # 追加
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=mysql
